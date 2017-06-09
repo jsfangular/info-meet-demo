@@ -1,5 +1,7 @@
 package com.volvo.demo.jsfangular.faces.userprofile;
 
+import java.io.Serializable;
+
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -10,7 +12,9 @@ import com.volvo.demo.jsfangular.userprofile.UserProfile;
 
 @ViewScoped
 @ManagedBean(name = RegistrationBean.BEAN_NAME)
-public class RegistrationBean {
+public class RegistrationBean implements Serializable {
+
+    private static final long serialVersionUID = 8023060752939125890L;
 
     public static final String BEAN_NAME = "registrationBean";
 
