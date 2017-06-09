@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import 'rxjs/add/operator/switchMap';
 
 import { UserProfile, UserProfileService } from './user-profile';
 
@@ -10,7 +11,6 @@ import { UserProfile, UserProfileService } from './user-profile';
 })
 class AppComponent implements OnInit {
 
-  title = 'Demo';
   userProfile: Observable<UserProfile>;
 
   constructor(private userProfileService: UserProfileService) {
@@ -20,6 +20,12 @@ class AppComponent implements OnInit {
   ngOnInit(): void {
     console.log('AppComponent init');
     this.userProfile = this.userProfileService.getUserProfile();
+  }
+
+  logOut(): void {
+    console.log('AppComponent logOut');
+    let loadUserProfile: Observable<UserProfile> = this.userProfileService.getUserProfile();
+    this.userProfile = this.userProfileService.logOutUserProfile().switchMap(() => loadUserProfile);
   }
 }
 

@@ -4,6 +4,7 @@ import { Http, Response, RequestOptionsArgs } from '@angular/http'
 import { UserProfile } from './user-profile.i';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/take';
 
 @Injectable()
 class UserProfileService {
@@ -24,6 +25,12 @@ class UserProfileService {
     getUserProfile(): Observable<UserProfile> {
         return this.http.get(this.HOST_PATH + this.BASE_URL + this.URL_SESSION, this.corsOption)
             .map((response: Response) => <UserProfile>response.json());
+    }
+
+    logOutUserProfile(): Observable<boolean> {
+        return this.http.post(this.HOST_PATH + this.BASE_URL + this.URL_LOGOUT, {}, this.corsOption)
+            .take(1)
+            .map((response: Response) => response.ok);
     }
 }
 

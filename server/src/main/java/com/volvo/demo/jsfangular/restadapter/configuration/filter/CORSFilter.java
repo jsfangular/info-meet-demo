@@ -61,7 +61,7 @@ public class CORSFilter implements Filter {
 
     String createDevelopmentOrigin(HttpServletRequest request) {
         try {
-            return new URL(request.getScheme(), request.getServerName(), RestAdapterConstants.WEB_CLIENT_PORT_LOCAL, "").toString();
+            return new URL(request.getScheme(), request.getServerName(), RestAdapterConstants.ANGULAR_CLIENT_PORT_LOCAL, "").toString();
         } catch (MalformedURLException e) {
             LOG.error("There was problem when trying to construct local development origin for webclient" + e.getMessage());
             return "";

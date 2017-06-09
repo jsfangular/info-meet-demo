@@ -1,10 +1,8 @@
 <div *ngIf="!profile?.login">
     <h3>You are not logged in!</h3>
-    <button type="button" (click)="logIn()">Log in</button>
 </div>
 <div *ngIf="profile?.login">
     <h3>You are logged in ({{profile.login}})</h3>
-    <button type="button" (click)="logOut()">Log out</button>
+    <button type="button" (click)="logOut()">Invoke JSF Client Log out action</button>
 </div>
-
-<br/> Current profile: {{profile | json}}
+<br/> Current profile: <br/> {{profile | json}}

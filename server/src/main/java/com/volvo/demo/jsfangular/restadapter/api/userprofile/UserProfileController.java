@@ -22,6 +22,13 @@ public class UserProfileController {
         return new ResponseEntity<>(userProfileBean.getCurrentProfile(), HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/logout", method = RequestMethod.POST)
+    public ResponseEntity<UserProfile> logOutUserProfile(FacesContext facesContext) {
+        getUserProfileBean(facesContext).clearUserProfile();
+
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
     UserProfileBean getUserProfileBean(FacesContext context) {
         return context.getApplication().evaluateExpressionGet(context, UserProfileBean.BEAN_EL_NAME, UserProfileBean.class);
     }

@@ -6,11 +6,10 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
-	<title>Server Side Application (JSF - Spring)</title>
+	<title>Server</title>
 </h:head>
 <h:body>
-	<h2>Current User Profile</h2>
-
+	<h3>Current User Profile</h3>
 	<h:form>
 		<ui:param name="colNumber" value="2" />
 
@@ -34,6 +33,7 @@
 				</h:commandButton>
 			</h:panelGrid>
 		</h:panelGroup>
+		<br />
 
 		<!-- Session Info -->
 		<h:panelGroup id="sessionProfile">
@@ -58,5 +58,15 @@
 
 		</h:panelGroup>
 	</h:form>
+
+	<!-- Navigation -->
+	<br />
+	Navigation
+	<br />
+	<h:outputLink value="http://localhost:4200">Go to Angular Client!</h:outputLink>
+
+	<!-- Application Info -->
+	<hr />
+	<h2>JSF client</h2>
 </h:body>
 </html>

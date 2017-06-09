@@ -4,13 +4,11 @@ import { UserProfile } from './user-profile.i';
 @Component({
     selector: 'app-user-profile',
     templateUrl: './user-profile.component.html',
-    styleUrls: ['./user-profile.component.css'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 class UserProfileComponent implements OnInit {
 
     @Input() profile: UserProfile;
-    @Output() onLogIn: EventEmitter<any> = new EventEmitter<any>();
     @Output() onLogOut: EventEmitter<any> = new EventEmitter<any>();
 
     constructor() {
@@ -19,11 +17,6 @@ class UserProfileComponent implements OnInit {
 
     ngOnInit(): void {
         console.log('UserProfileComponent init');
-    }
-
-    logIn(): void {
-        console.log('UserProfileComponent logIn');
-        this.onLogIn.emit();
     }
 
     logOut(): void {

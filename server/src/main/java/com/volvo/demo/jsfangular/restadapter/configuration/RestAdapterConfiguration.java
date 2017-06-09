@@ -15,6 +15,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.volvo.demo.jsfangular.restadapter.configuration.interceptor.RestAdapterInterceptor;
+import com.volvo.demo.jsfangular.restadapter.configuration.interceptor.RestCacheInterceptor;
 import com.volvo.demo.jsfangular.restadapter.configuration.resolver.FacesContextMethodArgumentResolver;
 
 @Configuration
@@ -36,7 +37,7 @@ public class RestAdapterConfiguration extends WebMvcConfigurerAdapter {
         super.addInterceptors(registry);
 
         registry.addInterceptor(new RestAdapterInterceptor());
-        // registry.addInterceptor(new RestCacheInterceptor());
+        registry.addInterceptor(new RestCacheInterceptor());
     }
 
     @Override

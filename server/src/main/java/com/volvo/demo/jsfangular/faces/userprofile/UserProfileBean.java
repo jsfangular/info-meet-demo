@@ -17,7 +17,7 @@ public class UserProfileBean {
 
     @PostConstruct
     public void init() {
-        this.currentProfile = new UserProfile();
+        this.clearUserProfile();
     }
 
     public void createUserProfile(UserProfile profile) {
@@ -25,7 +25,7 @@ public class UserProfileBean {
     }
 
     public void clearUserProfile() {
-        this.currentProfile = null;
+        this.currentProfile = new UserProfile();
     }
 
     public UserProfile getCurrentProfile() {
